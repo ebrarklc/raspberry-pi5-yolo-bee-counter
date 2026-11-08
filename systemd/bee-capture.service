@@ -1,0 +1,13 @@
+[Unit]
+Description=Bee counter - camera capture (every ~12 s)
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Documents/YOLO
+ExecStart=/home/pi/Documents/YOLO/capture.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

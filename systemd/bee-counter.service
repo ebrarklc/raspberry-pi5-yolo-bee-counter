@@ -1,0 +1,16 @@
+[Unit]
+Description=Bee counter - YOLO counting + SQLite
+After=bee-capture.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/Documents/YOLO
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/pi/yolo/bin/python process_images.py
+KillSignal=SIGINT
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
